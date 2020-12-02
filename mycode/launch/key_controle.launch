@@ -1,0 +1,49 @@
+<launch>
+  <node name="get_key" pkg="get_key" type="get_key" />
+  <node name="preset_reconfigure" pkg="crane_x7_control" type="preset_reconfigure.py" required="true" unless="$(arg sim)"/>
+
+  <node name="key_controle" pkg="mycode" type="controle_keyboard.py" required="true" output="screen">
+
+    <!-- キーボード入力から受け取るasciiコード(int64)と動作の対応 -->
+
+    <!-- どちらかを押すとシャットダウン -->
+    <param name="button_shutdown_1" value="113" type="int" />  <!-- q -->
+    <param name="button_shutdown_2" value="3" type="int" />   <!-- Ctrl + c -->
+
+    <!-- 初期位置に戻す -->
+    <param name="button_name_home"  value="104" type="int" />   <!-- h -->
+
+    <!-- PIDゲインプリセット -->
+    <param name="button_preset_no1" value="112" type="int" />   <!-- p -->
+
+    <!-- ティーチング -->
+    <param name="button_teaching_save"   value="115" type="int" />   <!-- s -->
+    <param name="button_teaching_load"   value="108" type="int" />   <!-- l -->
+    <param name="button_teaching_delete" value="100" type="int" />   <!-- d -->
+
+    <!-- エンドエフェクタ操作 -->
+    <param name="button_grip_open" value="43" type="int" />   <!-- +(plus) -->
+    <param name="button_grip_close" value="13" type="int" />   <!-- Enter -->
+
+    <param name="axis_gripper"      value="3" type="int" />   <!-- よくわからん -->
+
+    <!-- アーム姿勢 -->
+    <param name="button_posi_enable" value="4" type="int" />
+    <param name="button_rpy_enable" value="6" type="int" />
+
+    <param name="axis_position_x_plus"   value="122" type="int" />   <!-- z -->
+    <param name="axis_position_x_minus"   value="120" type="int" />   <!-- x -->
+    <param name="axis_position_y_plus"   value="99" type="int" />   <!-- c -->
+    <param name="axis_position_y_minus"   value="118" type="int" />   <!-- v -->
+    <param name="axis_position_z_plus"   value="98" type="int" />   <!-- b -->
+    <param name="axis_position_z_minus"   value="110" type="int" />   <!-- n -->
+
+    <param name="axis_position_angle_x_plus"   value="90" type="int" />   <!-- Z -->
+    <param name="axis_position_angle_x_minus"   value="88" type="int" />   <!-- X -->
+    <param name="axis_position_angle_y_plus"   value="67" type="int" />   <!-- C -->
+    <param name="axis_position_angle_y_minus"   value="86" type="int" />   <!-- V -->
+    <param name="axis_position_angle_z_plus"   value="66" type="int" />   <!-- B -->
+    <param name="axis_position_angle_z_minus"   value="78" type="int" />   <!-- N -->
+
+  </node>
+</launch>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+  <name>mycode</name>
+  <version>0.0.0</version>
+  <description>my code of CRANE-X7 ROS package</description>
+
+  <maintainer email="keisuke.nagoyauniv@gmail.com">Keisuke WATANABE</maintainer>
+  <author email="keisuke.nagoyauniv@gmail.com">Keisuke WATANABE</author>
+
+  <license>NON-COMMERCIAL LICENSE AGREEMENT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>crane_x7_moveit_config</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+  <run_depend>crane_x7_moveit_config</run_depend>
+  <run_depend>moveit_commander</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>joy</run_depend>
+
+  <export>
+
+  </export>
+</package>
